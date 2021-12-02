@@ -1,0 +1,47 @@
+@model CadEmprestimoViewModel
+@{
+    ViewData["Title"] = "Edição de Emprestimo";
+}
+
+<h1 class="row justify-content-md-center">Edição de Empréstimo</h1>
+<div class="row justify-content-md-center">
+    <form asp-action="Cadastro" method="POST" class="col-md-4">
+        <input type="hidden" asp-for="Emprestimo.Id" />
+        <fieldset>
+            <legend>Usuario</legend>
+            <div class="form-group">
+                <label asp-for="Emprestimo.NomeUsuario">Nome</label>
+                <input asp-for="Emprestimo.NomeUsuario" class="form-control" readonly="readonly"/>
+            </div>
+            <div class="form-group">
+                <label asp-for="Emprestimo.Telefone">Telefone</label>
+                <input asp-for="Emprestimo.Telefone" class="form-control"/>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Livro</legend>
+            <div class="form-group">
+                <label asp-for="Emprestimo.DataEmprestimo">Data de Empréstimo</label>
+                <input type="date" asp-for="Emprestimo.DataEmprestimo" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label asp-for="Emprestimo.DataDevolucao">Data de Devolução</label>
+                <input type="date" asp-for="Emprestimo.DataDevolucao" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label asp-for="Emprestimo.LivroId">Livro</label>
+                <select asp-for="Emprestimo.LivroId" class="form-control">
+                    @foreach(Livro l in Model.Livros)
+                    {
+                        <option value="@l.Id">@l.Titulo</option>
+                    }
+                </select>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" asp-for="Emprestimo.Devolvido" />
+                <label class="form-check-label" for="Devolvido">Devolvido</label>
+            </div>
+        </fieldset>
+        <input type="submit" value="Salvar" class="btn btn-primary"/>
+    </form>
+</div>

@@ -1,0 +1,73 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\iagol\\OneDrive\\Pastas\\Estudos\\SENAC\\01. Aulas\\2021\\09. Dez - Manutenção de Projetos\\Atividade 01\\Biblioteca - netcore3.1\\Biblioteca\\Biblioteca.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\iagol\\OneDrive\\Pastas\\Estudos\\SENAC\\01. Aulas\\2021\\09. Dez - Manutenção de Projetos\\Atividade 01\\Biblioteca - netcore3.1\\Biblioteca\\Biblioteca.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\iagol\\OneDrive\\Pastas\\Estudos\\SENAC\\01. Aulas\\2021\\09. Dez - Manutenção de Projetos\\Atividade 01\\Biblioteca - netcore3.1\\Biblioteca\\Biblioteca.csproj",
+        "projectName": "Biblioteca",
+        "projectPath": "C:\\Users\\iagol\\OneDrive\\Pastas\\Estudos\\SENAC\\01. Aulas\\2021\\09. Dez - Manutenção de Projetos\\Atividade 01\\Biblioteca - netcore3.1\\Biblioteca\\Biblioteca.csproj",
+        "packagesPath": "C:\\Users\\iagol\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\iagol\\OneDrive\\Pastas\\Estudos\\SENAC\\01. Aulas\\2021\\09. Dez - Manutenção de Projetos\\Atividade 01\\Biblioteca - netcore3.1\\Biblioteca\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\iagol\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files (x86)\\dotnet\\sdk\\3.1.415\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

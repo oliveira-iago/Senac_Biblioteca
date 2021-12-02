@@ -1,0 +1,53 @@
+@model ICollection<Emprestimo>
+@{
+    ViewData["Title"] = "Listagem de Empréstimos";
+}
+
+<div class="row">
+    <div class="col-md-12">
+    <form class="form-inline" method="POST">
+        <div class="form-group mb-2">
+            <select name="TipoFiltro" class="form-control">
+                <option value="Usuario">Usuário</option>
+                <option value="Livro">Livro</option>
+            </select>
+        </div>
+        <div class="form-group mb-2 mx-sm-3">
+            <input type="text" placeholder="Filtro" name="Filtro" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-primary mb-2">Pesquisar</button>
+    </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <table > 
+            <thead>
+                <tr><th>Id</th>
+                <th>Usuario</th>
+                <th>Data Empréstimo</th>
+                <th>Data Devolução</th>
+                <th>Livro</th>
+                <th>Autor</th>
+                <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(Emprestimo e in Model)
+                {
+                <tr>
+                    <td>@e.Id</td>
+                    <td>@e.NomeUsuario</td>
+                    <td>@e.DataEmprestimo.ToString("dd/MM/yyyy")</td>
+                    <td>@e.DataDevolucao.ToString("dd/MM/yyyy")</td>
+                    <td>@e.Livro.Titulo</td>
+                    <td>@e.Livro.Autor</td>
+                    <td><a href="/Emprestimo/Edicao/@e.Id">Editar</a></td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
