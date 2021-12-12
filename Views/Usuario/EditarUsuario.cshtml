@@ -1,0 +1,35 @@
+@model Usuario
+
+@{
+    ViewData["Title"] = "Editar Usuário";
+}
+
+<h1 class="text-center">Editar Usuário</h1>
+
+<!-- Formulario do tipo post -->
+<form action="EditarUsuario" method="post">
+    <!-- Id oculto -->
+    <input type="hidden" asp-for="Id">
+
+    <!-- Nome, login e senha -->
+    <input type="text" name="Nome" id="userNome" value="@Model.Nome">
+    <input type="text" name="Login" id="userLogin" value="@Model.Login">
+    <input type="text" name="Senha" id="userSenha" value="@Model.Senha">
+
+    <!-- Tipo do usuario -->
+    <select name="tipo" id="userTipo">
+        
+        @if(Model.Tipo == Usuario.admin)
+        {
+            <option value="@Usuario.admin">Administrador</option>
+            <option value="@Usuario.padrao">Padrão</option>
+        }
+        else
+        {
+            <option value="@Usuario.padrao">Padrão</option>
+            <option value="@Usuario.admin">Administrador</option>
+        }
+    </select>
+
+    <input type="submit" value="Salvar Alterações">
+</form>

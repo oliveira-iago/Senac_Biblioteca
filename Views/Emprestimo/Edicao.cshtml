@@ -1,6 +1,6 @@
 @model CadEmprestimoViewModel
 @{
-    ViewData["Title"] = "Edição de Emprestimo";
+    ViewData["Title"] = "Editar Emprestimo";
 }
 
 <h1 class="row justify-content-md-center">Edição de Empréstimo</h1>
@@ -15,7 +15,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Emprestimo.Telefone">Telefone</label>
-                <input asp-for="Emprestimo.Telefone" class="form-control"/>
+                <input asp-for="Emprestimo.Telefone" class="form-control" readonly="readonly"/>
             </div>
         </fieldset>
         <fieldset>
@@ -42,6 +42,6 @@
                 <label class="form-check-label" for="Devolvido">Devolvido</label>
             </div>
         </fieldset>
-        <input type="submit" value="Salvar" class="btn btn-primary"/>
+        <input type="submit" value="Salvar" style="width: 100%;" class="btn btn-primary"/>
     </form>
 </div>

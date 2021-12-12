@@ -1,0 +1,24 @@
+@model Usuario
+
+@{
+    ViewData["Title"] = "Cadastro de Usuários";
+}
+
+<h1 class="text-center">Cadastrar Usuário</h1>
+
+<!-- Formulario do tipo post -->
+<form action="CadastrarUsuario" method="post">
+    
+    <!-- Nome, login e senha -->
+    <input type="text" name="Nome" asp-for="@Model.Nome">
+    <input type="text" name="Login" asp-for="@Model.Login">
+    <input type="password" name="Senha" asp-for="@Model.Senha">
+
+    <!-- Tipo do usuario -->
+    <select name="tipo" asp-for="@Model.Tipo">
+        <option value="@Usuario.padrao">Padrão</option>
+        <option value="@Usuario.admin">Administrador</option>
+    </select>
+
+    <input type="submit" class="btn btn-primary" value="Cadastrar">
+</form>

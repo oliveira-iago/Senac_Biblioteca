@@ -19,34 +19,50 @@ namespace Biblioteca.Controllers
             _logger = logger;
         }
 
+        //Página inicial
         public IActionResult Index()
-        {
-            Autenticacao.CheckLogin(this);
+        {   
+            //Verifica se o usuário está logado (Se nao estiver manda para a pagina de login)
+            Autenticacao.verificaLogin(this);
+
+            //Retorna a propria View
             return View();
         }
 
+        //Página de Login
         public IActionResult Login()
         {
+            //Retorna a propria view
             return View();
         }
 
+        //Função de quando envia o formulario de login
         [HttpPost]
         public IActionResult Login(string login, string senha)
         {
-            if(login != "admin" || senha != "123")
+            //Se o login e senha estiverem corretos
+            if(Autenticacao.verificaLoginSenha(login, senha, this))
             {
-                ViewData["Erro"] = "Senha inválida";
-                return View();
+                //Salva as informações nos cookies
+                HttpContext.Session.SetString("Login", login);
+                
+                //Redireciona para a página inicial
+                return RedirectToAction("Index");
             }
             else
             {
-                HttpContext.Session.SetString("user", "admin");
-                return RedirectToAction("Index");
+                //Exibe a mensagem de erro
+                ViewData["Erro"] = "Login ou Senha inválidos";
+
+                //Retorna a propria View
+                return View();               
             }
         }
 
+        //Privacy
         public IActionResult Privacy()
         {
+            //Retorna a propria View
             return View();
         }
     }

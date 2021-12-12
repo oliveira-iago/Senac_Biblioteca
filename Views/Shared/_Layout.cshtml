@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Biblioteca.Controllers
+@using Microsoft.AspNetCore.Http
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -18,16 +20,42 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-light" href="/Livro/Cadastro" id="menuLivros">Livros</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link text-light dropdown-toggle" data-toggle="dropdown" href="#">Emprestimo</a>
-                            <div class="dropdown-menu" aria-labelledby="menuLivros">
-                                <a class="dropdown-item" href="/Emprestimo/Listagem">Listagem</a>
-                                <a class="dropdown-item" href="/Emprestimo/Cadastro">Cadastro</a>
-                            </div>
-                        </li>
+                    
+                        <!-- Verifica se o usuario está logado-->
+                        @if (!string.IsNullOrEmpty(Context.Session.GetString("Login")))
+                        {
+                            <!-- Livros-->
+                            <li style="margin-left: 40px;" class="nav-item dropdown">
+                                <a class="nav-link text-light dropdown-toggle" data-toggle="dropdown" href="#">Livro</a>
+                                <div class="dropdown-menu" aria-labelledby="menuLivros">
+                                    <a class="dropdown-item" href="/Livro/Listagem">Listagem</a>
+                                    <a class="dropdown-item" href="/Livro/Cadastro">Cadastrar</a>
+                                </div>
+                            </li>
+
+                            <!-- Empréstimos-->
+                            <li style="margin-left: 10px;" class="nav-item dropdown">
+                                <a class="nav-link text-light dropdown-toggle" data-toggle="dropdown" href="#">Empréstimo</a>
+                                <div class="dropdown-menu" aria-labelledby="menuLivros">
+                                    <a class="dropdown-item" href="/Emprestimo/Listagem">Listagem</a>
+                                    <a class="dropdown-item" href="/Emprestimo/Cadastro">Cadastrar</a>
+                                </div>
+                            </li>
+                            
+                            <!-- Usuários-->
+                            <li style="margin-left: 10px;" class="nav-item dropdown">
+                                <a class="nav-link text-light dropdown-toggle" data-toggle="dropdown" href="#">Usuário</a>
+                                <div class="dropdown-menu" aria-labelledby="menuLivros">
+                                    <a class="dropdown-item" href="/Usuario/ListaUsuarios">Listagem</a>
+                                    <a class="dropdown-item" href="/Usuario/CadastrarUsuario">Cadastrar</a>
+                                </div>
+                            </li>
+                            
+                            <!-- Botão Sair/Logof-->
+                            <li style="margin-left: 30px" class="nav-item">
+                                <a class="nav-link text-light" href="/Usuario/Sair">Sair</a>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>
@@ -41,7 +69,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2019 - Biblioteca - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2021 - Sistema Biblioteca - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacidade</a>
         </div>
     </footer>
 

@@ -3,5 +3,33 @@
     ViewData["Title"] = "Cadastro de Livros";
 }
 
-<h1 class="row justify-content-md-center">Cadastro de Livro</h1>
-<partial name="_FormCadastro" for="@Model" />
+<h3 class="row justify-content-md-center">Cadastrar Livro</h3>
+<br/>
+
+<div class="row justify-content-md-center">
+    <!-- Fomulario de cadastro -->
+    <form asp-action="Cadastro" method="POST" class="col-md-4">
+        <!-- Id oculto -->
+        <input type="hidden" asp-for="Id" />
+
+        <!-- Titulo-->
+        <div class="form-group">
+            <label asp-for="Titulo">Titulo</label>
+            <input required asp-for="Titulo" class="form-control"/>
+        </div>
+        <!-- Autor-->
+        <div class="form-group">
+            <label asp-for="Autor">Autor</label>
+            <input required asp-for="Autor" class="form-control"/>
+        </div>
+        <!-- Ano-->
+        <div>
+            <label asp-for="Ano">Ano</label>
+            <input required asp-for="Ano" class="form-control"/>
+        </div>
+
+        <!-- Botão salvar-->
+        <br/>
+        <input type="submit" value="Salvar" style="width: 100%" class="btn btn-primary"/>
+    </form>
+</div>

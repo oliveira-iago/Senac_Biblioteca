@@ -1,45 +1,117 @@
 @model List<Livro>
 @{
-    ViewData["Title"] = "Listagem de Livros";
+    ViewData["Title"] = "Livros";
+    //Recebe os valores definidos no ViewData do LivroController
+    int filtroPorPagina = Int32.Parse(ViewData["livrosPorPagina"].ToString());
+    int paginaAtual = Int32.Parse(ViewData["paginaAtual"].ToString());
+
+    //Se filtro por pagina (livros por pagina) for maior que o numero de livros, entao numero de livros por pagina recebe filtro por pagina (livros por pagina)
+    int numLivrosPorPagina = (Model.Count < filtroPorPagina ? Model.Count : filtroPorPagina);
+    
+    int numTotalPaginas = 0;
+    //Se o numero de livros por paginas for maior que zero
+    if(numLivrosPorPagina > 0)
+    {
+        // Se numero de livros dividido por numero de livros por pagina... what??
+        numTotalPaginas = (Model.Count / numLivrosPorPagina + (Model.Count % numLivrosPorPagina == 0 ? 0 : 1));
+    }
+
 }
+<!-- Filtro-->
 <div class="row">
     <div class="col-md-12">
+
     <form class="form-inline" method="POST">
         <div class="form-group mb-2">
+            <!-- Seleção tipo de filtro-->
             <select name="TipoFiltro" class="form-control">
-                <option value="Autor">Autor</option>
                 <option value="Titulo">Título</option>
+                <option value="Autor">Autor</option>
             </select>
         </div>
+        
+        <!-- Campo onde digitar o que buscar-->
         <div class="form-group mb-2 mx-sm-3">
-            <input type="text" placeholder="Filtro" name="Filtro" class="form-control" />
+            <input type="text" placeholder="Filtro" name="Filtro" class="form-control"/>
         </div>
-        <button type="submit" class="btn btn-primary mb-2">Pesquisar</button>
+        
+        <!-- Controle de paginação (Quantos livros exibidos por pagina)-->
+        <div class="form-group mb-2" style="margin-left: 15px;">
+            <select name="itensPorPagina" id="itensPorPagina" class="form-control">
+                <option value="10">10 Livros</option>
+                <option value="15">15 Livros</option>
+                <option value="30">30 Livros</option>
+                <option value="50">50 Livros</option>
+                <option value="@Model.Count">Todos os Livros</option>
+            </select>
+        </div>
+
+        <!-- Botão pesquisar-->
+        <button type="submit" class="btn btn-primary mb-2" style="margin-left: 25px;">Pesquisar</button>
+
+        <!-- Seletor de página-->
+        <div id="seletorPaginas" class="form-group mb-2" style="margin-left: 25px;">
+            <span>Página: </span>
+            
+            <!--Loop for (enquanto i menor que total de paginas)-->
+            @for(int i=1; i < numTotalPaginas; i++)
+            {
+                //Se o contador for maior que 1
+                if(i > 1)
+                {
+                    //Adiciona uma virgula
+                    <span>,</span>
+                }
+                //Adiciona um link para a pagina
+                <span style="margin-left: 5px;"><a href="/Livro/Listagem?paginaAtual=@i">@i</a></span>
+            }
+        </div>
     </form>
+    
     </div>
+
 </div>
 
 <div class="row">
     <div class="col-md-12">
-        <table class="table table-striped"> 
-            <thead>
-                <tr><th>Id</th>
-                <th>Titulo</th>
-                <th>Autor</th>
-                <th>Ano</th>
-                <th></th>
-                </tr>
-            </thead>
+        <!-- Tabela-->
+        <table class="table table-striped">
+            <!-- Se houverem valores na tabela-->
+            @if(Model.Count > 0)
+            {
+                <!-- Cabeçalho-->
+                <thead>
+                    <!-- Linha-->
+                    <tr>
+                        <!-- Colunas-->
+                        <th>Id</th>
+                        <th>Titulo</th>
+                        <th>Autor</th>
+                        <th>Ano</th>
+                        <th></th>
+                    </tr>
+                </thead>
+            }
+            else
+            {
+                <br><br>
+                <h4 class="text-center">Não há valores para serem exibidos</h4>
+            }
+            <!-- Corpo-->
             <tbody>
-                @foreach(Livro l in Model)
+                <!-- Loop onde preenche os livros-->
+                @for(int i = (paginaAtual - 1) * numLivrosPorPagina; i < (numLivrosPorPagina * paginaAtual < Model.Count ? numLivrosPorPagina * paginaAtual: Model.Count); i++)
                 {
-                <tr>
-                    <td>@l.Id</td>
-                    <td>@l.Titulo</td>
-                    <td>@l.Autor</td>
-                    <td>@l.Ano</td>
-                    <td><a href="/Livro/Edicao/@l.Id">Editar</a></td>
-                </tr>
+                    <!-- Linha-->
+                    <tr>
+                        <!-- Colunas-->
+                        <td>@Model[i].Id</td>
+                        <td>@Model[i].Titulo</td>
+                        <td>@Model[i].Autor</td>
+                        <td>@Model[i].Ano</td>
+                        <!-- Editar o livro-->
+                        <td><a href="/Livro/Edicao/@Model[i].Id">Editar</a></td>
+                    </tr>
                 }
             </tbody>
         </table>

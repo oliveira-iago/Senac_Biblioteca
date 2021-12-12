@@ -1,42 +1,54 @@
 @model CadEmprestimoViewModel
+
 @{
     ViewData["Title"] = "Cadastro de Emprestimos";
 }
 
-<h1 class="row justify-content-md-center">Cadastro de Empréstimo</h1>
+<h3 class="row justify-content-md-center">Cadastrar Empréstimo</h3>
+<br/><br/>
 <div class="row justify-content-md-center">
+    <!-- Cadastrar Empréstimo-->
     <form asp-action="Cadastro" method="POST" class="col-md-4">
         <fieldset>
             <legend>Usuario</legend>
+            <!-- Nome do usuário-->
             <div class="form-group">
                 <label asp-for="Emprestimo.NomeUsuario">Nome</label>
-                <input asp-for="Emprestimo.NomeUsuario" class="form-control"/>
+                <input required asp-for="Emprestimo.NomeUsuario" class="form-control"/>
             </div>
+            <!-- Telefone do usuário-->
             <div class="form-group">
                 <label asp-for="Emprestimo.Telefone">Telefone</label>
-                <input asp-for="Emprestimo.Telefone" class="form-control"/>
+                <input required asp-for="Emprestimo.Telefone" class="form-control"/>
             </div>
         </fieldset>
         <fieldset>
             <legend>Livro</legend>
+            <!-- Data de empréstimo-->
             <div class="form-group">
                 <label asp-for="Emprestimo.DataEmprestimo">Data de Empréstimo</label>
-                <input type="date" asp-for="Emprestimo.DataEmprestimo" class="form-control"/>
+                <input required type="date" asp-for="Emprestimo.DataEmprestimo" class="form-control"/>
             </div>
+            <!-- Data da devolução-->
             <div class="form-group">
                 <label asp-for="Emprestimo.DataDevolucao">Data de Devolução</label>
-                <input type="date" asp-for="Emprestimo.DataDevolucao" class="form-control"/>
+                <input required type="date" asp-for="Emprestimo.DataDevolucao" class="form-control"/>
             </div>
+
+            <!-- Selecionar o livro-->
             <div class="form-group">
                 <label asp-for="Emprestimo.LivroId">Livro</label>
+                <!-- Seleção dropdown de livros-->
                 <select asp-for="Emprestimo.LivroId" class="form-control">
-                    @foreach(Livro l in Model.Livros)
+                    <!-- Loop por livros disponiveis-->
+                    @foreach(Livro livro in Model.Livros)
                     {
-                        <option value="@l.Id">@l.Titulo</option>
+                        //Adiciona o livro na seleção de livros
+                        <option value="@livro.Id">@livro.Titulo</option>
                     }
                 </select>
             </div>
         </fieldset>
-        <input type="submit" value="Salvar" class="btn btn-primary"/>
+        <input type="submit" value="Salvar" style="width: 100%;" class="btn btn-primary"/>
     </form>
 </div>

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4O77FBz/1V22WAT8T/Rpu19JoIBo8ph+8Y0A/sSixPn30a3QtnduWMeQuVwjqFbfZmm5g2OmMq5wtdKt4XaskA==",
+  "dgSpecHash": "yACGWnEOCB2ZgpgGUkLxJg1no+maJ01y1v7+gdSBIAgSX8A9UTLN6/vUdB2J2lzEqnkHOh6s1J+cWTAm5L8JTA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\iagol\\OneDrive\\Pastas\\Estudos\\SENAC\\01. Aulas\\2021\\09. Dez - Manutenção de Projetos\\Atividade 01\\Biblioteca - netcore3.1\\Biblioteca\\Biblioteca.csproj",
+  "projectFilePath": "C:\\Users\\iagol\\OneDrive\\Pastas\\Estudos\\SENAC\\01. Aulas\\2021\\09. Dez - Manutenção de Projetos Web\\Atividade 02\\Biblioteca - netcore3.1\\Biblioteca\\Biblioteca.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\iagol\\.nuget\\packages\\microsoft.csharp\\4.6.0\\microsoft.csharp.4.6.0.nupkg.sha512",
     "C:\\Users\\iagol\\.nuget\\packages\\microsoft.entityframeworkcore\\3.0.0\\microsoft.entityframeworkcore.3.0.0.nupkg.sha512",

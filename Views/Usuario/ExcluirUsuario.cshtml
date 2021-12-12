@@ -1,0 +1,19 @@
+@model Usuario
+@{
+    ViewData["Title"] = "Confirmar";
+}
+<br/>
+<h1 class="text-center">Alerta!</h1>
+<br/><br/>
+<h4 class="text-center">Tem certeza que deseja excluir @Model.Nome (@Model.Login) para sempre?</h4>
+<br/><br/>
+<div class="row justify-content-md-center">
+<!-- Formulario-->
+<form action="ExcluirUsuario" method="post">
+    <!-- Id oculto-->
+    <input type="hidden" name="Id" value="@Model.Id">
+    <!-- Botões de decisão-->
+    <input name="decisao" type="submit" style="width: 100%; margin-bottom: 5px;" class="btn btn-primary" value="EXCLUIR">
+    <input name="decisao" type="submit" style="width: 100%;" class="btn btn-primary" value="CANCELAR">
+</form>
+</div>

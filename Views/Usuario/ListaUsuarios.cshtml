@@ -1,0 +1,59 @@
+@model List<Usuario>
+
+<h1 class="text-center">Usuários cadastrados no sistema</h1>
+<p class="text-center text-danger">@ViewData["mensagem"]</p>
+
+<a style="padding: 10px;" href="CadastrarUsuario">Cadastrar um novo usuário</a>
+<br/><br/>
+<!-- Tabela-->
+<table class="table">
+    <!-- Se houverem valores na tabela-->
+    @if(Model.Count > 0)
+    {
+        <!-- Cabeçalho -->
+        <thead>
+            <!-- Linha -->
+            <tr>
+                <!-- Colunas -->
+                <th scope="row">Nome</th>
+                <th scope="row">Login</th>
+                <th scope="row">Tipo</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+    }
+    else
+    {
+        <br><br>
+        <h4 class="text-center">Não há valores para serem exibidos</h4>
+    }
+
+    <!-- Corpo -->
+    <tbody>
+        <!-- Loop onde são preenchidos os usuários -->
+        @foreach(Usuario usuario in Model)
+        {
+            //Linha
+            <tr>
+                <!--Colunas-->
+                <td>@usuario.Nome</td>
+                <td>@usuario.Login</td>
+
+                <!--Se o usuario for admin-->
+                @if (usuario.Tipo == Usuario.admin)
+                {
+                    <td>Administrador</td>
+                }
+                else
+                {
+                    <td>Padrão</td>
+                }
+
+                <!-- Campos de edição e exclusão-->
+                <td><a href="EditarUsuario?id=@usuario.Id">Editar</a></td>
+                <td><a href="ExcluirUsuario?id=@usuario.Id">Excluir</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

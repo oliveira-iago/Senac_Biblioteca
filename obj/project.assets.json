@@ -850,11 +850,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\iagol\\OneDrive\\Pastas\\Estudos\\SENAC\\01. Aulas\\2021\\09. Dez - Manutenção de Projetos\\Atividade 01\\Biblioteca - netcore3.1\\Biblioteca\\Biblioteca.csproj",
+      "projectUniqueName": "C:\\Users\\iagol\\OneDrive\\Pastas\\Estudos\\SENAC\\01. Aulas\\2021\\09. Dez - Manutenção de Projetos Web\\atividade 02\\Biblioteca - netcore3.1\\biblioteca\\Biblioteca.csproj",
       "projectName": "Biblioteca",
-      "projectPath": "C:\\Users\\iagol\\OneDrive\\Pastas\\Estudos\\SENAC\\01. Aulas\\2021\\09. Dez - Manutenção de Projetos\\Atividade 01\\Biblioteca - netcore3.1\\Biblioteca\\Biblioteca.csproj",
+      "projectPath": "C:\\Users\\iagol\\OneDrive\\Pastas\\Estudos\\SENAC\\01. Aulas\\2021\\09. Dez - Manutenção de Projetos Web\\atividade 02\\Biblioteca - netcore3.1\\biblioteca\\Biblioteca.csproj",
       "packagesPath": "C:\\Users\\iagol\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\iagol\\OneDrive\\Pastas\\Estudos\\SENAC\\01. Aulas\\2021\\09. Dez - Manutenção de Projetos\\Atividade 01\\Biblioteca - netcore3.1\\Biblioteca\\obj\\",
+      "outputPath": "C:\\Users\\iagol\\OneDrive\\Pastas\\Estudos\\SENAC\\01. Aulas\\2021\\09. Dez - Manutenção de Projetos Web\\atividade 02\\Biblioteca - netcore3.1\\biblioteca\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\iagol\\AppData\\Roaming\\NuGet\\NuGet.Config"

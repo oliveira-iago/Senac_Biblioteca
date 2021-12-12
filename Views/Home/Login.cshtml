@@ -1,20 +1,35 @@
 @{
     ViewData["Title"] = "Login";
 }
-<!--<div class="container">-->
-    <div class="row justify-content-md-center">
-        <div class="jumbotron col-6">
-            <h1>Bem vindo ao sistema Biblioteca</h1>
-            <form asp-action="Login" method="POST">
-                <div class="form-group">
-                    <input type="text" placeholder="Login" class="form-control" name="login" />
-                </div>
-                <div class="form-group">
-                    <input type="password" placeholder="Senha" class="form-control" name="senha"/>
-                </div>
-                <input type="submit" class="btn btn-primary btn-lg" value="Entrar" />
-            </form>
-            <p class="text-danger">@ViewData["Erro"]</p>
-        </div>
+<br/>
+<br/>
+<div class="row justify-content-md-center">
+    <div class="jumbotron col-6">
+        
+        <h1 class="text-center">Sistema Biblioteca</h1>
+
+        <br/><br/>
+
+        <!-- Formulario de login-->
+        <form asp-action="Login" method="POST">
+            
+            <!-- Login-->
+            <div class="form-group">
+                <input required type="text" placeholder="Login" class="form-control" name="login" />
+            </div>
+
+            <!-- Senha-->
+            <div class="form-group">
+                <input required type="password" placeholder="Senha" class="form-control" name="senha"/>
+            </div>
+
+            <!-- Botao entrar-->
+            <br/>
+            <input type="submit" class="btn btn-primary btn-lg" style="width: 100%" value="Entrar" />
+    
+        </form>
+    
+        <p class="text-danger">@ViewData["Erro"]</p>
+    
     </div>
-<!--</div> -->
+</div>
